@@ -18,7 +18,7 @@ count = 0
 while True:
     cmd = 'tshark -r %s -z follow,tcp,ascii,%s'%(pcap_file,count)
     stream = cmdline(cmd)
-    stream = stream.split('===============================================\n')[1]
+    stream = stream.split('===================================================================\n')[1]
     stream += "\n------------------------\n"
     if 'Node 0: :0' not in stream:
         output_file.write(stream)
@@ -26,3 +26,5 @@ while True:
         break
     count += 1
     output_file.close()
+    
+    
